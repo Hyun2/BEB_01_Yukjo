@@ -121,6 +121,7 @@ function App() {
         newErc721addr={newErc721addr}
         setErc721list={setErc721list}
         erc20list={erc20list}
+        newErc20addr={newErc20addr}
       />
     </div>
   );
