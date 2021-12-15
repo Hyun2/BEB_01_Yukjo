@@ -81,7 +81,6 @@ function App() {
 					tokens.push({ name, symbol, tokenId, tokenURI });
 				}
 			}
-			// tokens + erc721list 후 tokenId로 중복제거
 			let uniqArr = _.uniqBy([...erc721list, ...tokens], 'tokenId');
 			setErc721list(uniqArr);
 			setIsLoading(false);
@@ -93,7 +92,7 @@ function App() {
 	return (
 		<div className='App'>
 			{isLoading && <Loading />}
-			<Header clickWallet={connectWallet} />
+			<Header clickWallet={connectWallet} accountAddr={account} />
 			<UserInfo account={account} />
 			<div className='userInfo'>주소: {account}</div>
 
