@@ -1,13 +1,11 @@
 import { useState } from 'react';
 import erc721Abi from '../erc721Abi';
 
-function Erc721({ web3, account, erc721list, updateToken }) {
+function Erc721({ web3, account, erc721list }) {
+	// TODO: 하드 코딩된 토큰 컨트랙트 주소
 	const erc721addr = '0xEC48354e0D1A24F7adB820F93fAC7bF7DC5a40fb';
 	const [to, setTo] = useState('');
 	const sendToken = async (tokenAddr, tokenId) => {
-		// 컨트랙트 객체를 가져옴
-		// 어디서 tokenAddr을 가져와야할까
-		// web3.eth.Contract(abi, addr) returns contract object
 		const tokenContract = await new web3.eth.Contract(erc721Abi, tokenAddr, {
 			from: account,
 		});
@@ -40,12 +38,10 @@ function Erc721({ web3, account, erc721list, updateToken }) {
 								}}></input>
 							<button
 								className='sendErc20Btn'
-								// mod by dongmoon token.address => erc721addr
 								onClick={sendToken.bind(this, erc721addr, token.tokenId)}>
 								send token
 							</button>
 						</div>
-						{JSON.stringify(token)}
 					</div>
 				);
 			})}
