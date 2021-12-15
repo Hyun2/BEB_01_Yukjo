@@ -47,13 +47,16 @@ function App() {
 			const name = await tokenContract.methods.name().call();
 			const symbol = await tokenContract.methods.symbol().call();
 			const balance = await tokenContract.methods.balanceOf(account).call();
-			console.log(name, symbol, balance);
-			setErc20list((prev) => [...prev, { name, symbol, balance }]);
+			setErc20list((prev) => [
+				...prev,
+				{ name, symbol, balance: web3.utils.fromWei(balance) },
+			]);
 			setIsLoading(false);
 		} catch (e) {
 			setIsLoading(false);
 			console.log(e);
 		}
+		// TODO: 같은 컨트랙트 넣고 중복해서 버튼 클릭 시 생성되지 않도록 처리 필요
 	};
 
 	const addNewErc721Token = async () => {
@@ -81,6 +84,7 @@ function App() {
 					tokens.push({ name, symbol, tokenId, tokenURI });
 				}
 			}
+			// tokens + erc721list 후 tokenId로 중복제거
 			let uniqArr = _.uniqBy([...erc721list, ...tokens], 'tokenId');
 			setErc721list(uniqArr);
 			setIsLoading(false);
@@ -92,7 +96,7 @@ function App() {
 	return (
 		<div className='App'>
 			{isLoading && <Loading />}
-			<Header clickWallet={connectWallet} accountAddr={account} />
+			<Header clickWallet={connectWallet} />
 			<UserInfo account={account} />
 			<div className='userInfo'>주소: {account}</div>
 
@@ -120,6 +124,7 @@ function App() {
 				newErc721addr={newErc721addr}
 				setErc721list={setErc721list}
 				erc20list={erc20list}
+				newErc20addr={newErc20addr}
 			/>
 		</div>
 	);
