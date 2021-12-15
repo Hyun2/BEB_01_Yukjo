@@ -7,7 +7,7 @@ import Web3 from 'web3';
 import Header from './components/header/Header';
 import Loading from './components/loading/Loading';
 import UserInfo from './components/userInfo/UserInfo';
-import TokenList from './components/TokenList';
+import TokenList from './components/tokens/TokenList';
 
 function App() {
 	const [isLoading, setIsLoading] = useState(false);

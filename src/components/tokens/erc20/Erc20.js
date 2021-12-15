@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import erc20Abi from '../../erc20Abi';
+import erc20Abi from '../../../erc20Abi.js';
 
 function Erc20({
 	web3,

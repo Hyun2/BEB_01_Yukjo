@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import erc721Abi from '../../erc721Abi';
+import erc721Abi from '../../../erc721Abi';
 
 function Erc721({ web3, account, erc721list, erc721addr, setErc721list }) {
 	const [to, setTo] = useState('');
