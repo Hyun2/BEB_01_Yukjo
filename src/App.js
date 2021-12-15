@@ -80,14 +80,7 @@ function App() {
 	};
 	return (
 		<div className='App'>
-			<Header />
-			<button
-				className='metaConnect'
-				onClick={() => {
-					connectWallet();
-				}}>
-				connect to MetaMast
-			</button>
+			<Header clickWallet={connectWallet} />
 
 			<div className='userInfo'>주소: {account}</div>
 
