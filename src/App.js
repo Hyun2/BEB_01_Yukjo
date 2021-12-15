@@ -6,6 +6,7 @@ import Web3 from 'web3';
 
 import Header from './components/header/Header';
 import Loading from './components/loading/Loading';
+import UserInfo from './components/userInfo/UserInfo';
 import TokenList from './components/TokenList';
 
 function App() {
@@ -93,7 +94,7 @@ function App() {
 		<div className='App'>
 			{isLoading && <Loading />}
 			<Header clickWallet={connectWallet} />
-
+			<UserInfo account={account} />
 			<div className='userInfo'>주소: {account}</div>
 
 			<div className='newErc20'>
