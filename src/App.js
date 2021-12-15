@@ -4,6 +4,7 @@ import erc20Abi from './erc20Abi.js';
 import _ from 'lodash';
 import Web3 from 'web3';
 
+import Header from './components/header/Header';
 import TokenList from './components/TokenList';
 
 function App() {
@@ -79,6 +80,7 @@ function App() {
 	};
 	return (
 		<div className='App'>
+			<Header />
 			<button
 				className='metaConnect'
 				onClick={() => {
