@@ -8,6 +8,10 @@ html {
 	font-size: 14px;
 }
 
+a {
+	text-decoration: none;
+}
+
 #root {
 	padding-top: 13rem;
 }

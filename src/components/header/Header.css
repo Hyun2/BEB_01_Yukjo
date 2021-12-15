@@ -24,6 +24,11 @@
 .header .header__logo .header__logo__title {
 	letter-spacing: 2px;
 }
+.header__account {
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+}
 
 .header__account__user-icon {
 	background-color: #fff;
@@ -47,12 +52,7 @@
 	padding: 0.5rem;
 	border-radius: 15px;
 	font-size: 0.8rem;
-}
-
-.fa,
-.fas {
-	font-size: 2.7rem;
-	color: #9ba8e0;
+	height: 2.3rem;
 }
 
 .search_box_container {
@@ -70,6 +70,7 @@
 	align-items: center;
 	border: 2px solid #c4ccf1;
 	border-radius: 15px;
+	transition: all 0.2s;
 }
 
 .search_box .search_box__input {
@@ -95,6 +96,8 @@
 	border-bottom-left-radius: 25px;
 	cursor: pointer;
 	font-size: 2rem;
+	display: flex;
+	align-items: center;
 }
 .search_box .search_box__remove_btn {
 	height: 70px;
@@ -109,4 +112,10 @@
 
 .search_box .btn:disabled {
 	cursor: not-allowed;
+}
+
+.fa,
+.fas {
+	font-size: 2rem;
+	color: #9ba8e0;
 }

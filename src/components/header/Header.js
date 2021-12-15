@@ -21,7 +21,7 @@ function Header({ clickWallet, accountAddr }) {
 			<div className='search_box'>
 				<a
 					className='search_box__btn'
-					href={`https://etherscan.io/address/${searchInput}`}
+					href={`https://ropsten.etherscan.io/address/${searchInput}`}
 					target='_blank'
 					rel='noopener noreferrer'>
 					<i className='fas fa-search'></i>
@@ -39,12 +39,13 @@ function Header({ clickWallet, accountAddr }) {
 					<i className='fas fa-backspace'></i>
 				</button>
 			</div>
-			{accountAddr ? (
-				<div className='header__account__address'>
-					<h4>{accountAddr}</h4>
-				</div>
-			) : null}
+
 			<div className='header__account'>
+				{accountAddr ? (
+					<div className='header__account__address'>
+						<h4>{accountAddr}</h4>
+					</div>
+				) : null}
 				<div
 					className='header__account__user-icon'
 					onClick={() => clickWallet()}
