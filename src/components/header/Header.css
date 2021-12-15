@@ -1,0 +1,43 @@
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 2rem 3rem;
+	background-color: #fffafa;
+	box-shadow: 0px 5px 15px -13px #214aff;
+}
+
+.header .header__logo {
+	display: flex;
+	align-items: center;
+}
+
+.header .header__logo .header__logo__img {
+	width: 3.5rem;
+	margin-right: 1rem;
+}
+
+.header .header__logo .header__logo__title {
+	letter-spacing: 2px;
+}
+.header__account__user-icon {
+	background-color: #fff;
+	height: 4rem;
+	width: 4rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	border: 2px solid #9ba8e0;
+	cursor: pointer;
+	transition: all 0.2s;
+}
+.header__account__user-icon:hover {
+	box-shadow: 0px 5px 15px -5px #214aff;
+}
+
+.fa,
+.fas {
+	font-size: 2.7rem;
+	color: #9ba8e0;
+}
