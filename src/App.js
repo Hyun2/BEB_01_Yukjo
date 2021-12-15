@@ -96,7 +96,7 @@ function App() {
 	return (
 		<div className='App'>
 			{isLoading && <Loading />}
-			<Header clickWallet={connectWallet} />
+			<Header clickWallet={connectWallet} accountAddr={account} />
 			<UserInfo account={account} />
 			<div className='userInfo'>주소: {account}</div>
 
