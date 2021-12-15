@@ -46,13 +46,16 @@ function App() {
       const name = await tokenContract.methods.name().call();
       const symbol = await tokenContract.methods.symbol().call();
       const balance = await tokenContract.methods.balanceOf(account).call();
-      console.log(name, symbol, balance);
-      setErc20list((prev) => [...prev, { name, symbol, balance }]);
+      setErc20list((prev) => [
+        ...prev,
+        { name, symbol, balance: web3.utils.fromWei(balance) },
+      ]);
       setIsLoading(false);
     } catch (e) {
       setIsLoading(false);
       console.log(e);
     }
+    // TODO: 같은 컨트랙트 넣고 중복해서 버튼 클릭 시 생성되지 않도록 처리 필요
   };
 
   const addNewErc721Token = async () => {
