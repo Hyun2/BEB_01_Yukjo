@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import './Header.css';
 
-function Header() {
+function Header({ clickWallet }) {
 	const [searchInput, setSearchInput] = useState('');
 
 	const changeInputHandler = (e) => {
@@ -41,7 +41,10 @@ function Header() {
 			</div>
 
 			<div className='header__account'>
-				<div className='header__account__user-icon'>
+				<div
+					className='header__account__user-icon'
+					onClick={() => clickWallet()}
+					title='connect to wallet'>
 					<i className='fas fa-user'></i>
 				</div>
 			</div>
