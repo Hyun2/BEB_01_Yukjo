@@ -1,7 +1,14 @@
 import { useState } from 'react';
 import erc20Abi from '../../erc20Abi';
 
-function Erc20({ web3, account, erc20list, newErc20addr, setErc20list }) {
+function Erc20({
+	web3,
+	account,
+	erc20list,
+	newErc20addr,
+	setErc20list,
+	updateErc20TokenBalance,
+}) {
 	// TODO: 하드 코딩된 토큰 컨트랙트 주소
 	const [to, setTo] = useState('');
 	const [amount, setAmount] = useState(0);
@@ -23,6 +30,7 @@ function Erc20({ web3, account, erc20list, newErc20addr, setErc20list }) {
 					.on('receipt', (receipt) => {
 						setTo('');
 						// TODO: Token 전송 후 잔액 수정하는 부분
+						updateErc20TokenBalance(tokenAddr);
 					});
 			}
 		} catch (e) {

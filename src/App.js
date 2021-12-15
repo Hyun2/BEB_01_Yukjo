@@ -153,6 +153,7 @@ function App() {
 						setErc721list={setErc721list}
 						erc20list={erc20list}
 						newErc20addr={newErc20addr}
+						updateErc20TokenBalance={updateErc20TokenBalance}
 					/>
 				</>
 			) : null}
