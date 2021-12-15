@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import erc721Abi from '../erc721Abi';
 
-function Erc721({ web3, account, erc721list }) {
+function Erc721({ web3, account, erc721list, erc721addr }) {
 	// TODO: 하드 코딩된 토큰 컨트랙트 주소
-	const erc721addr = '0xEC48354e0D1A24F7adB820F93fAC7bF7DC5a40fb';
 	const [to, setTo] = useState('');
 	const sendToken = async (tokenAddr, tokenId) => {
 		const tokenContract = await new web3.eth.Contract(erc721Abi, tokenAddr, {
@@ -20,6 +19,7 @@ function Erc721({ web3, account, erc721list }) {
 			});
 	};
 	return (
+		// test
 		<div className='erc721list'>
 			{erc721list.map((token) => {
 				return (
