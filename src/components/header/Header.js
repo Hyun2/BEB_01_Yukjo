@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 import './Header.css';
 
-function Header({ clickWallet }) {
+function Header({ clickWallet, accountAddr }) {
 	const [searchInput, setSearchInput] = useState('');
 
 	const changeInputHandler = (e) => {
@@ -39,7 +40,11 @@ function Header({ clickWallet }) {
 					<i className='fas fa-backspace'></i>
 				</button>
 			</div>
-
+			{accountAddr ? (
+				<div className='header__account__address'>
+					<h4>{accountAddr}</h4>
+				</div>
+			) : null}
 			<div className='header__account'>
 				<div
 					className='header__account__user-icon'
