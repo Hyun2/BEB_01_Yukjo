@@ -1,4 +1,5 @@
 import Erc721 from './Erc721';
+import Erc20 from './Erc20';
 
 // TokenList.js
 function TokenList({
@@ -7,9 +8,12 @@ function TokenList({
 	erc721list,
 	newErc721addr,
 	setErc721list,
+	erc20list,
 }) {
 	return (
 		<div className='tokenlist'>
+			<Erc20 erc20list={erc20list} />
+
 			<Erc721
 				web3={web3}
 				account={account}
