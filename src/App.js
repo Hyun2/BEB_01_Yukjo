@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import erc721Abi from './erc721Abi.js';
+import _ from 'lodash';
 import Web3 from 'web3';
 
 import TokenList from './components/TokenList';
@@ -28,6 +29,7 @@ function App() {
 	};
 
 	const addNewErc721Token = async () => {
+		console.log('addNewErc called');
 		try {
 			const tokenContract = await new web3.eth.Contract(
 				erc721Abi,
@@ -36,7 +38,10 @@ function App() {
 			const name = await tokenContract.methods.name().call();
 			const symbol = await tokenContract.methods.symbol().call();
 			const totalSupply = await tokenContract.methods.totalSupply().call();
+			// token id arr
 			let arr = [];
+			// 비교할 token 객체 arr
+			let tokens = [];
 			for (let i = 1; i <= totalSupply; i++) {
 				arr.push(i);
 			}
@@ -44,11 +49,12 @@ function App() {
 				let tokenOwner = await tokenContract.methods.ownerOf(tokenId).call();
 				if (String(tokenOwner).toLowerCase() === account) {
 					let tokenURI = await tokenContract.methods.tokenURI(tokenId).call();
-					setErc721list((prevState) => {
-						return [...prevState, { name, symbol, tokenId, tokenURI }];
-					});
+					tokens.push({ name, symbol, tokenId, tokenURI });
 				}
 			}
+			// tokens + erc721list 후 tokenId로 중복제거
+			let uniqArr = _.uniqBy([...erc721list, ...tokens], 'tokenId');
+			setErc721list(uniqArr);
 		} catch (error) {
 			alert(error);
 		}
@@ -71,7 +77,12 @@ function App() {
 					}}></input>
 				<button onClick={addNewErc721Token}>add new erc721</button>
 			</div>
-			<TokenList web3={web3} account={account} erc721list={erc721list} />
+			<TokenList
+				web3={web3}
+				account={account}
+				erc721list={erc721list}
+				newErc721addr={newErc721addr}
+			/>
 		</div>
 	);
 }
