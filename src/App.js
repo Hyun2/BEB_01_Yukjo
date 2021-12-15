@@ -5,9 +5,12 @@ import _ from 'lodash';
 import Web3 from 'web3';
 
 import Header from './components/header/Header';
+import Loading from './components/loading/Loading';
 import TokenList from './components/TokenList';
 
 function App() {
+	const [isLoading, setIsLoading] = useState(false);
+
 	const [web3, setWeb3] = useState();
 	const [account, setAccount] = useState('');
 	const [newErc721addr, setNewErc721addr] = useState('');
@@ -26,13 +29,16 @@ function App() {
 		}
 	}, []);
 	const connectWallet = async () => {
+		setIsLoading(true);
 		const accounts = await window.ethereum.request({
 			method: 'eth_requestAccounts',
 		});
 		setAccount(accounts[0]);
+		setIsLoading(false);
 	};
 
 	const addNewErc20Token = async () => {
+		setIsLoading(true);
 		try {
 			const tokenContract = await new web3.eth.Contract(erc20Abi, newErc20addr);
 			console.log(tokenContract);
@@ -42,13 +48,16 @@ function App() {
 			const balance = await tokenContract.methods.balanceOf(account).call();
 			console.log(name, symbol, balance);
 			setErc20list((prev) => [...prev, { name, symbol, balance }]);
+			setIsLoading(false);
 		} catch (e) {
+			setIsLoading(false);
 			console.log(e);
 		}
 	};
 
 	const addNewErc721Token = async () => {
 		console.log('addNewErc called');
+		setIsLoading(true);
 		try {
 			const tokenContract = await new web3.eth.Contract(
 				erc721Abi,
@@ -74,12 +83,15 @@ function App() {
 			// tokens + erc721list 후 tokenId로 중복제거
 			let uniqArr = _.uniqBy([...erc721list, ...tokens], 'tokenId');
 			setErc721list(uniqArr);
+			setIsLoading(false);
 		} catch (error) {
 			alert(error);
+			setIsLoading(false);
 		}
 	};
 	return (
 		<div className='App'>
+			{isLoading && <Loading />}
 			<Header clickWallet={connectWallet} />
 
 			<div className='userInfo'>주소: {account}</div>
