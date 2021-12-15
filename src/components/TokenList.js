@@ -10,6 +10,8 @@ function TokenList({
 	setErc721list,
 	erc20list,
 	newErc20addr,
+	setErc20list,
+	updateErc20TokenBalance,
 }) {
 	return (
 		<div className='tokenlist'>
@@ -18,6 +20,8 @@ function TokenList({
 				account={account}
 				erc20list={erc20list}
 				newErc20addr={newErc20addr}
+				setErc20list={setErc20list}
+				updateErc20TokenBalance={updateErc20TokenBalance}
 			/>
 
 			<Erc721

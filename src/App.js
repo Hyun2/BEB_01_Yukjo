@@ -38,18 +38,45 @@ function App() {
 		setIsLoading(false);
 	};
 
+	const updateErc20TokenBalance = async (tokenAddr) => {
+		try {
+			const tokenContract = await new web3.eth.Contract(erc20Abi, newErc20addr);
+			const name = await tokenContract.methods.name().call();
+			const symbol = await tokenContract.methods.symbol().call();
+			const balance = await tokenContract.methods.balanceOf(account).call();
+
+			setErc20list((prev) =>
+				prev.map((token) => {
+					if (token.addr !== tokenAddr) return token;
+					return {
+						name,
+						symbol,
+						balance: web3.utils.fromWei(balance),
+						addr: newErc20addr,
+					};
+				})
+			);
+		} catch (e) {
+			console.log(e);
+		}
+	};
+
 	const addNewErc20Token = async () => {
 		setIsLoading(true);
 		try {
 			const tokenContract = await new web3.eth.Contract(erc20Abi, newErc20addr);
-			console.log(tokenContract);
 
 			const name = await tokenContract.methods.name().call();
 			const symbol = await tokenContract.methods.symbol().call();
 			const balance = await tokenContract.methods.balanceOf(account).call();
 			setErc20list((prev) => [
 				...prev,
-				{ name, symbol, balance: web3.utils.fromWei(balance) },
+				{
+					name,
+					symbol,
+					balance: web3.utils.fromWei(balance),
+					addr: newErc20addr,
+				},
 			]);
 			setIsLoading(false);
 		} catch (e) {
@@ -60,6 +87,7 @@ function App() {
 	};
 
 	const addNewErc721Token = async () => {
+		console.log('addNewErc called');
 		setIsLoading(true);
 		try {
 			const tokenContract = await new web3.eth.Contract(
