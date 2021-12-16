@@ -14,9 +14,7 @@
 	flex-direction: column;
 	align-items: center;
 	min-height: 28rem;
-	padding: 0.5rem;
 	color: #fff;
-	border-radius: 15px;
 	box-shadow: 1px 8px 15px 5px #dee0e3;
 	background-image: linear-gradient(
 		to right top,
@@ -30,6 +28,9 @@
 }
 .erc721list__container .erc721__token__card .erc721__token__img__container {
 	width: 100%;
+	object-fit: cover;
+	background-size: cover;
+	background-position: center;
 }
 .erc721list__container .erc721__token__card .erc721__token__img {
 	object-fit: cover;
