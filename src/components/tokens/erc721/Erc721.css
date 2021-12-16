@@ -9,15 +9,41 @@
 }
 
 .erc721list__container .erc721__token__card {
-	background-color: rgb(74, 138, 221);
-	padding: 3rem;
 	min-width: 30%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	min-height: 25rem;
+	min-height: 28rem;
+	padding: 0.5rem;
+	color: #fff;
 	border-radius: 15px;
 	box-shadow: 1px 8px 15px 5px #dee0e3;
-	background-color: #fff;
+	background-image: linear-gradient(
+		to right top,
+		#d7afe3,
+		#d097e1,
+		#ca7ede,
+		#c264da,
+		#bb45d6
+	);
 	border: 1px solid lightgrey;
+}
+.erc721list__container .erc721__token__card .erc721__token__img__container {
+	width: 100%;
+}
+.erc721list__container .erc721__token__card .erc721__token__img {
+	object-fit: cover;
+	width: 100%;
+}
+
+.erc721list__container .erc721__token__card .erc721__token__profile {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	font-size: 1rem;
+	padding: 1rem;
+	width: 100%;
+}
+.erc721list__container .erc721__token__card .erc20__token__transfer {
+	padding: 1rem;
 }

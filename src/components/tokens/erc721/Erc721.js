@@ -27,11 +27,14 @@ function Erc721({ web3, account, erc721list, erc721addr, setErc721list }) {
 				return (
 					<div className='erc721__token__card' key={token.tokenId}>
 						{/* TODO */}
-						<img src={token.tokenURI} width={300} alt='' />
-						Name: <span className='name'>{name}</span>(
-						<span className='symbol'>{symbol}</span>)
-						<div className='nft'>id: {tokenId}</div>
-						<div className='tokenTransfer'>
+						<div className='erc721__token__img__container'>
+							<img src={token.tokenURI} alt='' className='erc721__token__img' />
+						</div>
+						<div className='erc721__token__profile'>
+							<h1 className='erc20__token__profile__name'>{`${name} (${symbol})`}</h1>
+							<h2 className='erc20__token__profile__balance'>{`id: ${tokenId}`}</h2>
+						</div>
+						<div className='erc20__token__transfer'>
 							To:{' '}
 							<input
 								type='text'

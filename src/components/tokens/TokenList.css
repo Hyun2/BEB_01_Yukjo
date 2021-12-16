@@ -1,0 +1,5 @@
+.tokenlist .erc20__token__intro h1,
+.tokenlist .erc721__token__intro h1 {
+	font-size: 3.5rem;
+	font-weight: bold;
+}

@@ -1,8 +1,11 @@
 .erc20list__container {
 	position: relative;
 	display: flex;
+	flex-wrap: wrap;
 	padding: 2rem;
+	margin-bottom: 6rem;
 	font-size: 1.5rem;
+	gap: 3rem;
 }
 
 .erc20list__container .erc20__token__card {
@@ -11,6 +14,7 @@
 	display: flex;
 	flex-direction: column;
 	min-height: 25rem;
+	min-width: 23.333333%;
 	border-radius: 15px;
 	box-shadow: 0px 5px 15px -1px #b2ffd0;
 	background-image: linear-gradient(
@@ -26,6 +30,7 @@
 .erc20list__container .erc20__token__card .erc20__token__profile {
 	display: flex;
 	flex-direction: column;
+	font-weight: 300;
 }
 
 .erc20list__container
@@ -37,6 +42,7 @@
 	.erc20__token__profile
 	.erc20__token__profile__balance {
 	margin-bottom: 1rem;
+	font-weight: 400;
 }
 
 .erc20list__container .erc20__token__card .erc20__token__transfer {

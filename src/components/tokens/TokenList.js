@@ -1,6 +1,8 @@
 import Erc721 from './erc721/Erc721';
 import Erc20 from './erc20/Erc20';
 
+import './TokenList.css';
+
 // TokenList.js
 function TokenList({
 	web3,
