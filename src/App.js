@@ -127,41 +127,43 @@ function App() {
 		<div className='App'>
 			{isLoading && <Loading />}
 			<Header clickWallet={connectWallet} accountAddr={account} />
-			{account ? (
-				<>
-					<UserInfo account={account} />
+			<div className='container'>
+				{account ? (
+					<>
+						<UserInfo account={account} />
 
-					<div className='newErc20'>
-						<input
-							type='text'
-							onChange={(e) => {
-								setNewErc20addr(e.target.value); // 입력받을 때마다 newErc20addr 갱신
-							}}></input>
-						<button onClick={addNewErc20Token}>add new erc20</button>
-					</div>
+						<div className='newErc20'>
+							<input
+								type='text'
+								onChange={(e) => {
+									setNewErc20addr(e.target.value); // 입력받을 때마다 newErc20addr 갱신
+								}}></input>
+							<button onClick={addNewErc20Token}>add new erc20</button>
+						</div>
 
-					<div className='newErc721'>
-						<input
-							type='text'
-							onChange={(e) => {
-								setNewErc721addr(e.target.value); // 입력받을 때마다 newErc721addr 갱신
-							}}></input>
-						<button onClick={addNewErc721Token}>add new erc721</button>
-					</div>
-					<TokenList
-						web3={web3}
-						account={account}
-						erc721list={erc721list}
-						newErc721addr={newErc721addr}
-						setErc721list={setErc721list}
-						erc20list={erc20list}
-						newErc20addr={newErc20addr}
-						updateErc20TokenBalance={updateErc20TokenBalance}
-					/>
-				</>
-			) : (
-				<NoAccount clickWallet={connectWallet} />
-			)}
+						<div className='newErc721'>
+							<input
+								type='text'
+								onChange={(e) => {
+									setNewErc721addr(e.target.value); // 입력받을 때마다 newErc721addr 갱신
+								}}></input>
+							<button onClick={addNewErc721Token}>add new erc721</button>
+						</div>
+						<TokenList
+							web3={web3}
+							account={account}
+							erc721list={erc721list}
+							newErc721addr={newErc721addr}
+							setErc721list={setErc721list}
+							erc20list={erc20list}
+							newErc20addr={newErc20addr}
+							updateErc20TokenBalance={updateErc20TokenBalance}
+						/>
+					</>
+				) : (
+					<NoAccount clickWallet={connectWallet} />
+				)}
+			</div>
 		</div>
 	);
 }
