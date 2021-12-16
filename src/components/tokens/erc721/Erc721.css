@@ -9,7 +9,7 @@
 }
 
 .erc721list__container .erc721__token__card {
-	min-width: 30%;
+	width: 30%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -28,13 +28,10 @@
 }
 .erc721list__container .erc721__token__card .erc721__token__img__container {
 	width: 100%;
-	object-fit: cover;
-	background-size: cover;
-	background-position: center;
 }
 .erc721list__container .erc721__token__card .erc721__token__img {
-	object-fit: cover;
 	width: 100%;
+	height: 30rem;
 }
 
 .erc721list__container .erc721__token__card .erc721__token__profile {
