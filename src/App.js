@@ -143,7 +143,8 @@ function App() {
 			<div className='container'>
 				{account ? (
 					<>
-						{!erc20list && !erc721list ? (
+						{/* false && false  */}
+						{!erc20list || !erc721list ? (
 							<>
 								<UserInfo account={account} />
 								<div className='newErc20'>
@@ -175,7 +176,12 @@ function App() {
 								/>
 							</>
 						) : (
-							<NoTokenList />
+							<NoTokenList
+								addNewErc721Token={addNewErc721Token}
+								addNewErc20Token={addNewErc20Token}
+								setNewErc721addr={setNewErc721addr}
+								setNewErc20addr={setNewErc20addr}
+							/>
 						)}
 					</>
 				) : (
