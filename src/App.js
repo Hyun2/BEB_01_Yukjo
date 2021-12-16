@@ -8,6 +8,9 @@ import Header from './components/header/Header';
 import Loading from './components/loading/Loading';
 import UserInfo from './components/userInfo/UserInfo';
 import TokenList from './components/tokens/TokenList';
+import NoAccount from './components/userInfo/NoAccount.js';
+
+import './App.css';
 
 function App() {
 	const [isLoading, setIsLoading] = useState(false);
@@ -156,7 +159,9 @@ function App() {
 						updateErc20TokenBalance={updateErc20TokenBalance}
 					/>
 				</>
-			) : null}
+			) : (
+				<NoAccount clickWallet={connectWallet} />
+			)}
 		</div>
 	);
 }
