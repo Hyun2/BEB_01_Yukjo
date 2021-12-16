@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import erc721Abi from '../../../erc721Abi';
 
+import './Erc721.css';
+
 function Erc721({ web3, account, erc721list, erc721addr, setErc721list }) {
 	const [to, setTo] = useState('');
 	const sendToken = async (tokenAddr, tokenId) => {
@@ -19,15 +21,16 @@ function Erc721({ web3, account, erc721list, erc721addr, setErc721list }) {
 			});
 	};
 	return (
-		// test
-		<div className='erc721list'>
+		<div className='erc721list__container'>
 			{erc721list.map((token) => {
+				const { symbol, name, tokenId } = token;
 				return (
-					<div className='erc721token' key={token.tokenId}>
-						Name: <span className='name'>{token.name}</span>(
-						<span className='symbol'>{token.symbol}</span>)
-						<div className='nft'>id: {token.tokenId}</div>
+					<div className='erc721__token__card' key={token.tokenId}>
+						{/* TODO */}
 						<img src={token.tokenURI} width={300} alt='' />
+						Name: <span className='name'>{name}</span>(
+						<span className='symbol'>{symbol}</span>)
+						<div className='nft'>id: {tokenId}</div>
 						<div className='tokenTransfer'>
 							To:{' '}
 							<input
