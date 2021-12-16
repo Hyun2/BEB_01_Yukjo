@@ -1,0 +1,12 @@
+.erc20list__container {
+	background-color: purple;
+	display: flex;
+	padding: 2rem;
+}
+
+.erc20list__container .erc20__token__card {
+	background-color: red;
+	display: flex;
+	flex-direction: column;
+	min-height: 15rem;
+}

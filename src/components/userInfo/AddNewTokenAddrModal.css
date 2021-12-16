@@ -26,11 +26,9 @@
 
 	background-image: linear-gradient(
 		to right bottom,
-		#ffffff,
-		#eaf6ff,
-		#bcf2ff,
-		#78f1ff,
-		#00eff0
+		rgba(245, 245, 244, 1) 0%,
+		rgba(194, 224, 228, 1) 50%,
+		rgba(45, 219, 203, 0.25) 100%
 	);
 }
 

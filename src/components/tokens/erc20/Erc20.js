@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import erc20Abi from '../../../erc20Abi.js';
 
+import './Erc20.css';
+
 function Erc20({
 	web3,
 	account,
@@ -39,13 +41,20 @@ function Erc20({
 	};
 	return (
 		// test
-		<div className='erc20list'>
+		<div className='erc20list__container'>
 			{erc20list.map((token) => {
+				{
+					/* TODO */
+				}
+				const { symbol, name, balance } = token;
+				const tokenIdentifier = symbol + name;
 				return (
-					<div className='erc20token' key={token.symbol + token.name}>
-						Name: <span className='name'>{token.name}</span>(
-						<span className='symbol'>{token.symbol}</span>)
-						<span>{token.balance}</span>
+					<div className='erc20__token__card' key={tokenIdentifier}>
+						<div className='token__profile'>
+							<h1>{name}</h1>
+							<h2>{balance}</h2>
+						</div>
+
 						<div className='tokenTransfer'>
 							To:{' '}
 							<input
