@@ -12,12 +12,17 @@ import NoAccount from "../userInfo/NoAccount.js";
 import NoTokenList from "../userInfo/NoTokenList";
 
 import "./Home.css";
+import { useStore } from "../../store.js";
 
 function Home() {
   const [isLoading, setIsLoading] = useState(false);
 
-  const [web3, setWeb3] = useState();
-  const [account, setAccount] = useState("");
+  // const [web3, setWeb3] = useState();
+  const [web3, setWeb3] = useStore((state) => [state.web3, state.setWeb3]);
+  const [account, setAccount] = useStore((state) => [
+    state.account,
+    state.setAccount,
+  ]);
   const [newErc721addr, setNewErc721addr] = useState("");
   const [erc721list, setErc721list] = useState([]);
   const [newErc20addr, setNewErc20addr] = useState("");
@@ -141,9 +146,9 @@ function Home() {
     }
   };
   return (
-    <div className="App">
+    <>
       {isLoading && <Loading />}
-      <Header clickWallet={connectWallet} accountAddr={account} />
+      {/* <Header clickWallet={connectWallet} accountAddr={account} /> */}
       <div className="container">
         {account ? (
           <>
@@ -195,7 +200,7 @@ function Home() {
           <NoAccount clickWallet={connectWallet} />
         )}
       </div>
-    </div>
+    </>
   );
 }
 
