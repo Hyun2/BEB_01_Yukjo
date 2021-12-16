@@ -9,42 +9,6 @@ html {
 }
 
 body {
-	/* ff 3.6+ */
-	background: -moz-linear-gradient(
-		90deg,
-		rgba(245, 245, 244, 1) 0%,
-		rgba(194, 224, 228, 1) 50%,
-		rgba(45, 219, 203, 0.25) 100%
-	);
-
-	/* safari 5.1+,chrome 10+ */
-	background: -webkit-linear-gradient(
-		90deg,
-		rgba(245, 245, 244, 1) 0%,
-		rgba(194, 224, 228, 1) 50%,
-		rgba(45, 219, 203, 0.25) 100%
-	);
-
-	/* opera 11.10+ */
-	background: -o-linear-gradient(
-		90deg,
-		rgba(245, 245, 244, 1) 0%,
-		rgba(194, 224, 228, 1) 50%,
-		rgba(45, 219, 203, 0.25) 100%
-	);
-
-	/* ie 6-9 */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2DDBCB', endColorstr='#F5F5F4', GradientType=0 );
-
-	/* ie 10+ */
-	background: -ms-linear-gradient(
-		90deg,
-		rgba(245, 245, 244, 1) 0%,
-		rgba(194, 224, 228, 1) 50%,
-		rgba(45, 219, 203, 0.25) 100%
-	);
-
-	/* global 94%+ browsers support */
 	background: linear-gradient(
 		90deg,
 		rgba(245, 245, 244, 1) 0%,

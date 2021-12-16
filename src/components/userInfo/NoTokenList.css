@@ -21,7 +21,6 @@
 	flex-direction: column;
 	align-items: center;
 	gap: 3px;
-	width: 45%;
 }
 .card--no-token .add--token--addr--container .add--token--addr--token__type h3 {
 	margin-bottom: 2rem;

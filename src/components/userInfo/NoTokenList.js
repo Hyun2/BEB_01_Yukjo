@@ -56,6 +56,10 @@ function NoTokenList({
 							toggleModal();
 						}}></i>
 				</div>
+				<div className='add--token--addr--token__type'>
+					<h3>Minting Page</h3>
+					<i className='fas fa-coins'></i>
+				</div>
 			</div>
 		</div>
 	);

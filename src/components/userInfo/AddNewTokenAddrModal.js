@@ -30,23 +30,36 @@ function AddNewTokenAddrModal({
 		if (tokenType === 'erc20') {
 			setNewErc20addr(modalInput);
 			await addNewErc20Token();
+			setIsModalOpen();
 		} else {
 			setNewErc721addr(modalInput);
 			await addNewErc721Token();
+			setIsModalOpen();
 		}
 	};
 
 	return (
 		<div className='modal_container'>
 			<div className='modal'>
-				<div className='modal__title'>Modal</div>
+				<div className='modal__title'>
+					<h1>{`Add new ${tokenType.toUpperCase()} Address`}</h1>
+				</div>
 				<div className='modal__input'>
 					<input
 						type='text'
 						value={modalInput}
 						onChange={changeModalInputHandler}
 					/>
-					<button onClick={clickSubmitHandler}>submit addr</button>
+				</div>
+				<div className='modal__button__container'>
+					<div className='modal__submit__button' onClick={clickSubmitHandler}>
+						<i className='far fa-check-circle'></i>
+					</div>
+					<div
+						className='modal__cancel__button'
+						onClick={() => setIsModalOpen()}>
+						<i className='fas fa-ban'></i>
+					</div>
 				</div>
 			</div>
 		</div>
