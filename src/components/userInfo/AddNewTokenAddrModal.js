@@ -39,25 +39,40 @@ function AddNewTokenAddrModal({
 	};
 
 	return (
-		<div className='modal_container'>
-			<div className='modal'>
+		<div
+			className='modal_container'
+			onClick={(e) => {
+				e.stopPropagation();
+				setIsModalOpen();
+			}}>
+			<div className='modal' onClick={(e) => e.stopPropagation()}>
 				<div className='modal__title'>
 					<h1>{`Add new ${tokenType.toUpperCase()} Address`}</h1>
 				</div>
-				<div className='modal__input'>
+				<div className='modal__input' onClick={(e) => e.stopPropagation()}>
 					<input
 						type='text'
 						value={modalInput}
 						onChange={changeModalInputHandler}
 					/>
 				</div>
-				<div className='modal__button__container'>
-					<div className='modal__submit__button' onClick={clickSubmitHandler}>
+				<div
+					className='modal__button__container'
+					onClick={(e) => e.stopPropagation()}>
+					<div
+						className='modal__submit__button'
+						onClick={(e) => {
+							e.stopPropagation();
+							clickSubmitHandler();
+						}}>
 						<i className='far fa-check-circle'></i>
 					</div>
 					<div
 						className='modal__cancel__button'
-						onClick={() => setIsModalOpen()}>
+						onClick={(e) => {
+							e.stopPropagation();
+							setIsModalOpen();
+						}}>
 						<i className='fas fa-ban'></i>
 					</div>
 				</div>
