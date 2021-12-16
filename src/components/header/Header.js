@@ -49,9 +49,17 @@ function Header({ clickWallet, accountAddr }) {
 				<div
 					className='header__account__user-icon'
 					onClick={() => clickWallet()}
-					title='connect to wallet'>
+					title='connect with wallet'>
 					<i className='fas fa-wallet'></i>
 				</div>
+				<a
+					className='header__account__user-icon'
+					title='go to github repo'
+					href={`https://github.com/codestates/BEB1stProject-06`}
+					target='_blank'
+					rel='noopener noreferrer'>
+					<i class='fab fa-github'></i>
+				</a>
 			</div>
 		</div>
 	);
