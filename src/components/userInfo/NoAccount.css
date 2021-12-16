@@ -3,11 +3,12 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	max-width: 80%;
 	min-height: 35rem;
+	margin: auto;
 	background-color: rgb(245, 242, 242);
 	border-radius: 15px;
 	padding: 2rem;
-	-webkit-box-shadow: 5px 5px 15px 5px #b2b2b2;
 	box-shadow: 5px 5px 15px 5px #b2b2b2;
 }
 

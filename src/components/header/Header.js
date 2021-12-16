@@ -58,7 +58,7 @@ function Header({ clickWallet, accountAddr }) {
 					href={`https://github.com/codestates/BEB1stProject-06`}
 					target='_blank'
 					rel='noopener noreferrer'>
-					<i class='fab fa-github'></i>
+					<i className='fab fa-github'></i>
 				</a>
 			</div>
 		</div>
