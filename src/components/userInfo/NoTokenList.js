@@ -9,6 +9,8 @@ function NoTokenList({
 	addNewErc20Token,
 	setNewErc721addr,
 	setNewErc20addr,
+	newErc20addr,
+	newErc721addr,
 }) {
 	const [selectedTokenType, setSelectedTokenType] = useState('');
 	const [isModalOpen, setIsModalOpen] = useState(false);
@@ -24,11 +26,14 @@ function NoTokenList({
 		<div className='card--no-token'>
 			{isModalOpen && (
 				<AddNewTokenAddrModal
+					setIsModalOpen={setIsModalOpen}
 					tokenType={selectedTokenType}
 					addNewErc721Token={addNewErc721Token}
 					addNewErc20Token={addNewErc20Token}
 					setNewErc721addr={setNewErc721addr}
 					setNewErc20addr={setNewErc20addr}
+					newErc20addr={newErc20addr}
+					newErc721addr={newErc721addr}
 				/>
 			)}
 
