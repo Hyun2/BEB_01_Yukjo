@@ -21,7 +21,7 @@ function NewAddrButton({
 			<div
 				className='new__addr__close__button'
 				onClick={() => setIsNewAddrButtonShown(!isNewAddrButtonShown)}>
-				<i class='fas fa-window-close'></i>
+				<i className='fas fa-window-close'></i>
 			</div>
 			{isModalOpen && (
 				<AddNewTokenAddrModal

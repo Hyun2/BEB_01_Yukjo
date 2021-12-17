@@ -48,7 +48,21 @@
 .erc20list__container .erc20__token__card .erc20__token__transfer {
 	display: flex;
 	flex-direction: column;
-	gap: 1rem;
+	align-items: center;
+	justify-content: center;
+	padding: 3rem;
+	width: 100%;
+}
+
+.erc20list__container
+	.erc20__token__card
+	.erc20__token__transfer
+	.token__send__button {
+	cursor: pointer;
+}
+
+.fas.fa-comments-dollar {
+	font-size: 6rem;
 }
 .erc20list__container
 	.erc20__token__card
