@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import AddNewTokenAddrModal from '../userInfo/AddNewTokenAddrModal';
 import './NewAddrButton.css';
@@ -53,6 +54,11 @@ function NewAddrButton({
 				}}>
 				<span>Add ERC721 Token</span>
 			</button>
+			<Link to='/mint-nft'>
+				<button className='new__addr__button'>
+					<span>Go to Mint Page</span>
+				</button>
+			</Link>
 		</div>
 	);
 }

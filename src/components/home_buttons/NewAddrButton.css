@@ -7,7 +7,8 @@
 	justify-content: space-around;
 	align-items: center;
 	width: 25%;
-	height: 25rem;
+	height: 28rem;
+	padding: 3rem;
 	z-index: 888;
 	border-radius: 15px;
 	background-image: linear-gradient(
@@ -46,6 +47,7 @@
 	padding: 2rem;
 	cursor: pointer;
 	transition: all 0.2s;
+	width: 15rem;
 }
 
 .new__addr__button__container .new__addr__button:hover {
