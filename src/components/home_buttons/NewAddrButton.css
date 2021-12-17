@@ -1,0 +1,54 @@
+.new__addr__button__container {
+	position: fixed;
+	top: 9rem;
+	right: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	width: 25%;
+	height: 25rem;
+	z-index: 888;
+	border-radius: 15px;
+	background-image: linear-gradient(
+		to top,
+		#e7eef2,
+		#e0eef3,
+		#d9edf4,
+		#d2edf3,
+		#caedf1,
+		#c1eef1,
+		#b7eef1,
+		#adeff0,
+		#9ef1f3,
+		#8cf2f5,
+		#78f4f8,
+		#5ff5fb
+	);
+	box-shadow: 0px 5px 15px -13px #214aff;
+}
+
+.new__addr__button__container .new__addr__close__button {
+	cursor: pointer;
+	position: absolute;
+	top: 3px;
+	right: 3px;
+}
+
+.new__addr__button__container .new__addr__title {
+	font-size: 1.5rem;
+}
+
+.new__addr__button__container .new__addr__button {
+	border-radius: 15px;
+	border: 1.3px solid #8cf2f5;
+	box-shadow: 0px 5px 15px -13px #214aff;
+	padding: 2rem;
+	cursor: pointer;
+	transition: all 0.2s;
+}
+
+.new__addr__button__container .new__addr__button:hover {
+	background-color: #8cf2f5;
+	box-shadow: 3px 4px 2px 1px #8feaea;
+}

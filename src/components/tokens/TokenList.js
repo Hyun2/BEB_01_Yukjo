@@ -34,7 +34,7 @@ function TokenList({
 			)}
 			{erc721list.length > 0 && (
 				<>
-					<div class='erc721__token__intro'>
+					<div className='erc721__token__intro'>
 						<h1>My Erc721 Token List</h1>
 					</div>
 					<Erc721
