@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import './Header.css';
 
@@ -14,10 +15,13 @@ function Header({ clickWallet, accountAddr }) {
 
 	return (
 		<div className='header'>
-			<div className='header__logo'>
-				<img src='img/opensea.svg' alt='' className='header__logo__img' />
-				<h3 className='header__logo__title'>YukJO</h3>
-			</div>
+			<Link to='/'>
+				<div className='header__logo'>
+					<img src='img/opensea.svg' alt='' className='header__logo__img' />
+					<h3 className='header__logo__title'>YukJO</h3>
+				</div>
+			</Link>
+
 			<div className='search_box'>
 				<a
 					className='search_box__btn'
