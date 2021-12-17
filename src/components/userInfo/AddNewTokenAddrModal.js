@@ -14,6 +14,7 @@ function AddNewTokenAddrModal({
 	const changeModalInputHandler = (e) => {
 		setModalInput(e.target.value);
 	};
+
 	useEffect(() => {
 		if (newErc20addr) {
 			addNewErc20Token();

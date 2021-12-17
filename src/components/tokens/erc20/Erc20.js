@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import erc20Abi from '../../../erc20Abi.js';
 
+import Erc20SendTokenModal from './Erc20SendTokenModal';
+
 import './Erc20.css';
 
 function Erc20({
@@ -15,6 +17,7 @@ function Erc20({
 	const [to, setTo] = useState('');
 	const [amount, setAmount] = useState(0);
 	const [isLoading, setIsLoading] = useState(false);
+	const [isModalOpen, setIsModalOpen] = useState(false);
 
 	const sendToken = async (tokenAddr) => {
 		console.log(tokenAddr);
@@ -46,6 +49,17 @@ function Erc20({
 	return (
 		// test
 		<div className='erc20list__container'>
+			{isModalOpen && (
+				<Erc20SendTokenModal
+					amount={amount}
+					setAmount={setAmount}
+					sendToken={sendToken}
+					isModalOpen={isModalOpen}
+					setIsModalOpen={setIsModalOpen}
+					setTo={setTo}
+					to={to}
+				/>
+			)}
 			{erc20list.map((token) => {
 				const { symbol, name, balance } = token;
 				const tokenIdentifier = symbol + name;
@@ -56,27 +70,11 @@ function Erc20({
 							<h2 className='erc20__token__profile__balance'>{balance}</h2>
 						</div>
 						<div className='erc20__token__transfer'>
-							<label htmlFor='token__transfer__to'>To</label>
-							<input
-								className='erc20__token'
-								type='text'
-								id='token__transfer__to'
-								onChange={(e) => {
-									setTo(e.target.value);
-								}}></input>
-							<label htmlFor='token__transfer__amount'>Amount</label>
-							<input
-								id='token__transfer__amount'
-								type='number'
-								onChange={(e) => setAmount(e.target.value)}
-							/>
-							<button
-								className='sendErc20Btn'
-								onClick={() => {
-									sendToken(newErc20addr);
-								}}>
-								send token
-							</button>
+							<div
+								className='token__send__button'
+								onClick={() => setIsModalOpen(!isModalOpen)}>
+								<i className='fas fa-comments-dollar'></i>
+							</div>
 						</div>
 					</div>
 				);
