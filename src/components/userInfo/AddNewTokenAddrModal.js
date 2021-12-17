@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './AddNewTokenAddrModal.css';
 function AddNewTokenAddrModal({
-	tokenType,
+	tokenType = '',
 	addNewErc721Token,
 	addNewErc20Token,
 	setNewErc20addr,

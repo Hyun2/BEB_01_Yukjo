@@ -5,6 +5,16 @@
 }
 
 .container {
+	position: relative;
 	display: flex;
 	flex-direction: column;
+}
+.open__new__addr__button {
+	position: fixed;
+	top: 10rem;
+	right: 3rem;
+	cursor: pointer;
+}
+.fas.fa-plus-circle {
+	font-size: 5rem;
 }

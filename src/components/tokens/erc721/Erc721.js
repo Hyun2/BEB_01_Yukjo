@@ -23,12 +23,12 @@ function Erc721({ web3, account, erc721list, erc721addr, setErc721list }) {
 	return (
 		<div className='erc721list__container'>
 			{erc721list.map((token) => {
-				const { symbol, name, tokenId } = token;
+				const { symbol, name, tokenId, tokenURI } = token;
 				return (
-					<div className='erc721__token__card' key={token.tokenId}>
+					<div className='erc721__token__card' key={tokenId}>
 						{/* TODO */}
 						<div className='erc721__token__img__container'>
-							<img src={token.tokenURI} alt='' className='erc721__token__img' />
+							<img src={tokenURI} alt='' className='erc721__token__img' />
 						</div>
 						<div className='erc721__token__profile'>
 							<h1 className='erc20__token__profile__name'>{`${name} (${symbol})`}</h1>
