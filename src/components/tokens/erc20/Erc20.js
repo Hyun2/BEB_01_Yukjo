@@ -1,23 +1,22 @@
 import { useState } from 'react';
+import { useStore } from '../../../store.js';
 import erc20Abi from '../../../erc20Abi.js';
 
 import Erc20SendTokenModal from './Erc20SendTokenModal';
 
 import './Erc20.css';
+import Loading from '../../loading/Loading.js';
 
-function Erc20({
-	web3,
-	account,
-	erc20list,
-	newErc20addr,
-	setErc20list,
-	updateErc20TokenBalance,
-}) {
+function Erc20({ web3, account, erc20list, updateErc20TokenBalance }) {
 	// TODO: 하드 코딩된 토큰 컨트랙트 주소
 	const [to, setTo] = useState('');
 	const [amount, setAmount] = useState(0);
-	const [isLoading, setIsLoading] = useState(false);
 	const [isModalOpen, setIsModalOpen] = useState(false);
+
+	const [isLoading, setIsLoading] = useStore((state) => [
+		state.isLoading,
+		state.setIsLoading,
+	]);
 
 	const sendToken = async (tokenAddr) => {
 		console.log(tokenAddr);
@@ -49,6 +48,7 @@ function Erc20({
 	return (
 		// test
 		<div className='erc20list__container'>
+			{isLoading && <Loading />}
 			{isModalOpen && (
 				<Erc20SendTokenModal
 					amount={amount}
