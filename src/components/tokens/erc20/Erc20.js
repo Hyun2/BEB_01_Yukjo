@@ -5,14 +5,7 @@ import Erc20SendTokenModal from './Erc20SendTokenModal';
 
 import './Erc20.css';
 
-function Erc20({
-	web3,
-	account,
-	erc20list,
-	newErc20addr,
-	setErc20list,
-	updateErc20TokenBalance,
-}) {
+function Erc20({ web3, account, erc20list, updateErc20TokenBalance }) {
 	// TODO: 하드 코딩된 토큰 컨트랙트 주소
 	const [to, setTo] = useState('');
 	const [amount, setAmount] = useState(0);

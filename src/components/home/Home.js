@@ -12,7 +12,6 @@ import NewAddrButton from '../home_buttons/NewAddrButton.js';
 
 import './Home.css';
 import { useStore } from '../../store.js';
-import AddNewTokenAddrModal from '../userInfo/AddNewTokenAddrModal.js';
 
 function Home() {
 	const [isLoading, setIsLoading] = useStore((state) => [
@@ -83,6 +82,7 @@ function Home() {
 				for (let erc20 of erc20list) {
 					if (erc20.addr === newErc20addr) {
 						isNew = false;
+						break;
 					}
 				}
 
@@ -173,9 +173,10 @@ function Home() {
 									/>
 								) : (
 									<div
-										onClick={() =>
-											setIsNewAddrButtonShown(!isNewAddrButtonShown)
-										}
+										onClick={(e) => {
+											e.stopPropagation();
+											setIsNewAddrButtonShown(!isNewAddrButtonShown);
+										}}
 										className='open__new__addr__button'
 										title='add new token addr'>
 										<i className='fas fa-plus-circle'></i>
