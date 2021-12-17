@@ -17,4 +17,18 @@ export const useStore = create((set) => ({
     set((prevState) => {
       return { erc20list: [...prevState.erc20list, newToken] };
     }),
+  updateErc20list: ({ name, symbol, tokenAddr, balance, newErc20addr }) =>
+    set((prevState) => {
+      return {
+        erc20list: prevState.erc20list.map((token) => {
+          if (token.addr !== tokenAddr) return token;
+          return {
+            name,
+            symbol,
+            balance,
+            addr: newErc20addr,
+          };
+        }),
+      };
+    }),
 }));

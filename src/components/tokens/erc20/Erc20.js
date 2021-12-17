@@ -38,7 +38,7 @@ function Erc20({ web3, account, erc20list, updateErc20TokenBalance }) {
           .send({
             from: account,
           })
-          .on("receipt", (receipt) => {
+          .on("confirmation", (receipt) => {
             setTo("");
             // TODO: Token 전송 후 잔액 수정하는 부분
             updateErc20TokenBalance(selectedTokenAddr);

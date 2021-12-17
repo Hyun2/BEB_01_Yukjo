@@ -25,9 +25,10 @@ function Home() {
     state.setAccount,
   ]);
   const [newErc721addr, setNewErc721addr] = useState("");
-  const [erc721list, setErc721list] = useStore((state) => [
+  const [erc721list, setErc721list, updateErc20list] = useStore((state) => [
     state.erc721list,
     state.setErc721list,
+    state.updateErc20list,
   ]);
   const [newErc20addr, setNewErc20addr] = useState("");
   const [erc20list, setErc20list] = useStore((state) => [
@@ -63,17 +64,24 @@ function Home() {
       const symbol = await tokenContract.methods.symbol().call();
       const balance = await tokenContract.methods.balanceOf(account).call();
 
-      setErc20list((prev) =>
-        prev.map((token) => {
-          if (token.addr !== tokenAddr) return token;
-          return {
-            name,
-            symbol,
-            balance: web3.utils.fromWei(balance),
-            addr: newErc20addr,
-          };
-        })
-      );
+      // setErc20list((prev) =>
+      //   prev.map((token) => {
+      //     if (token.addr !== tokenAddr) return token;
+      //     return {
+      //       name,
+      //       symbol,
+      //       balance: web3.utils.fromWei(balance),
+      //       addr: newErc20addr,
+      //     };
+      //   })
+      // );
+      updateErc20list({
+        name,
+        symbol,
+        tokenAddr,
+        balance: web3.utils.fromWei(balance),
+        newErc20addr,
+      });
     } catch (e) {
       console.log(e);
     }
