@@ -16,13 +16,13 @@ function AddNewTokenAddrModal({
 	};
 
 	useEffect(() => {
-		if (newErc20addr) {
+		if (modalInput) {
 			addNewErc20Token();
 		}
 	}, [newErc20addr]);
 
 	useEffect(() => {
-		if (newErc721addr) {
+		if (modalInput) {
 			addNewErc721Token();
 		}
 	}, [newErc721addr]);

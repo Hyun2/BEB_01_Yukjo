@@ -75,7 +75,7 @@ function Home() {
 
 	const addNewErc20Token = async () => {
 		setIsLoading(true);
-		console.log('addNewErc20Token');
+		console.log('addNewErc20 called');
 		let isNew = true;
 		if (newErc20addr) {
 			try {
@@ -114,7 +114,7 @@ function Home() {
 	};
 
 	const addNewErc721Token = async () => {
-		console.log('addNewErc called');
+		console.log('addNewErc721 called');
 		setIsLoading(true);
 		if (newErc721addr) {
 			try {

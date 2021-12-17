@@ -19,7 +19,7 @@ function TokenList({
 		<div className='tokenlist'>
 			{erc20list.length > 0 && (
 				<>
-					<div class='erc20__token__intro'>
+					<div className='erc20__token__intro'>
 						<h1>My Erc20 Token List</h1>
 					</div>
 					<Erc20
