@@ -47,7 +47,8 @@
 	padding: 2rem;
 	cursor: pointer;
 	transition: all 0.2s;
-	width: 15rem;
+	width: 17rem;
+	font-size: 1.3rem;
 }
 
 .new__addr__button__container .new__addr__button:hover {

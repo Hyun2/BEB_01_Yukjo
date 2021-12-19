@@ -47,10 +47,10 @@
 
 .erc20list__container .erc20__token__card .erc20__token__transfer {
 	display: flex;
-	flex-direction: column;
+	flex-direction: row-reverse;
 	align-items: center;
-	justify-content: center;
-	padding: 3rem;
+	justify-content: space-between;
+	padding: 2rem 0.5rem;
 	width: 100%;
 }
 
@@ -61,8 +61,15 @@
 	cursor: pointer;
 }
 
-.fas.fa-comments-dollar {
-	font-size: 6rem;
+.fas.fa-arrow-alt-circle-right {
+	font-size: 4rem;
+	color: #b4cdb6;
+	transition: all 0.2s;
+}
+
+.fas.fa-arrow-alt-circle-right:hover {
+	transform: scale(1.15);
+	color: #67b16d;
 }
 .erc20list__container
 	.erc20__token__card

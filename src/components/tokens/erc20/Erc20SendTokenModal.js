@@ -10,7 +10,7 @@ function Erc20SendTokenModal({
 	to,
 }) {
 	useEffect(() => {
-		if (to && amount) {
+		if (modalAddressInput) {
 			sendToken(to);
 		}
 	}, [to, amount]);
@@ -71,7 +71,7 @@ function Erc20SendTokenModal({
 						className='modal__cancel__button'
 						onClick={(e) => {
 							e.stopPropagation();
-							setIsModalOpen(!isModalOpen);
+							setIsModalOpen(false);
 						}}>
 						<i className='fas fa-ban'></i>
 					</div>
